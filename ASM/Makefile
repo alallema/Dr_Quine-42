@@ -15,7 +15,8 @@ GRACE =		Grace
 SULLY =		Sully
 
 SRCS =		Colleen.s	\
-			Grace.s
+			Grace.s		\
+			Sully.s
 
 ODIR =		./objs/
 
@@ -24,7 +25,7 @@ OBCC =		$(addprefix $(ODIR),$(OBJS))
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(COLLEEN) $(GRACE)
+all: $(COLLEEN) $(GRACE) $(SULLY)
 
 $(COLLEEN): header $(OBCC)
 	@echo "  ${PUR}++ Compilation ++ :${BOLD_STD} DrQuine"
