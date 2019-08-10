@@ -14,20 +14,19 @@ COLLEEN =	Colleen
 GRACE =		Grace
 SULLY =		Sully
 
-SRCS =		Colleen.c	\
-			Grace.c		\
-			Sully.c
+SRCS =		Colleen.s	\
+			Grace.s
 
 ODIR =		./objs/
 
-OBJS =		$(SRCS:%.c=%.o)
+OBJS =		$(SRCS:%.s=%.o)
 OBCC =		$(addprefix $(ODIR),$(OBJS))
 
 CFLAGS = -Wall -Wextra -Werror
 
 PATH_OBJS = objs
 
-all: $(COLLEEN) $(GRACE) $(SULLY)
+all: $(COLLEEN) $(GRACE)
 
 $(COLLEEN): header $(OBCC)
 	@echo "  ${PUR}++ Compilation ++ :${BOLD_STD} DrQuine"
@@ -40,10 +39,10 @@ $(SULLY): $(OBCC)
 	@gcc $(CFLAG) -o $@ $(ODIR)/$@.o
 	@echo "  ${PIN}Compilation terminee !${STD}"
 
-$(ODIR)%.o: %.c
+$(ODIR)%.o: %.s
 	@echo "  ${PUR}+Compilation :${BOLD_STD} $^"
 	@mkdir -p $(ODIR)
-	@gcc $(CFLAGS) -c $< -o $@
+	@nasm -f macho64 $< -o $@
 
 header:
 	@echo "${BOLD_YEL}"
