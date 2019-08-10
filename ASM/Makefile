@@ -59,4 +59,10 @@ fclean: clean
 	@rm -f $(COLLEEN) $(GRACE) $(SULLY)
 	@echo "  ${BOLD_RED}-Delete objects and binary${BOLD_STD}"
 
+cleanup:
+	@rm $(SULLY)_*
+	@echo "  ${BOLD_RED}-Delete Sully file${BOLD_STD}"
+	@rm Grace_kid.s
+	@echo "  ${BOLD_RED}-Delete Grace_kid file${BOLD_STD}"
+
 re: fclean all
