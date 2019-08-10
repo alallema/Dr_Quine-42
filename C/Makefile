@@ -25,8 +25,6 @@ OBCC =		$(addprefix $(ODIR),$(OBJS))
 
 CFLAGS = -Wall -Wextra -Werror
 
-PATH_OBJS = objs
-
 all: $(COLLEEN) $(GRACE) $(SULLY)
 
 $(COLLEEN): header $(OBCC)
