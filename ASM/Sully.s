@@ -30,7 +30,7 @@ sub rsp, 64
 
 mov byte[rbp - 8], 5
 cmp byte[rbp - 8], 0
-je .end
+jle .end
 
 lea rdi, [rel buff]
 lea rsi, [rel filename]
